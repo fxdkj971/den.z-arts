@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DENZ's Art Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Raleway:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            scroll-behavior: smooth;
-            background-color: #0d0d0d;
-            color: #f8f8f2;
         }
 
-        /* Background Video Container */
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #EEE2DF;
+            color: #2d2d2d;
+            scroll-behavior: smooth;
+        }
+
         .video-container {
             position: fixed;
             top: 0;
@@ -22,170 +27,195 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            z-index: -2;
+            z-index: -3;
         }
 
         .video-container video {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.6; /* Increased visibility */
-            filter: blur(2px); /* Soft blur effect */
+            filter: blur(5px); /* Add 5% blur to the video */
         }
 
-        /* Dark Overlay for Better Readability */
         .overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
-            z-index: -1;
+            background: rgba(91, 97, 178, 0.5); /* LIBERTY color with 50% opacity */
+            z-index: -2;
         }
 
         .header {
-            background: linear-gradient(135deg, #ff0055, #ff7700);
-            color: #fff;
-            padding: 20px;
-            text-align: center;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            gap: 15px;
-            border-bottom: 3px solid #ff7700;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(238, 226, 223, 0.9); /* PLATINUM background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1; /* Ensure header is above the video and overlay */
         }
 
         .header img {
-            height: 100px;
-            border-radius: 10px;
+            height: 70px;
+            width: 70px;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+
+        .header h1 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #5B61B2; /* LIBERTY */
+            letter-spacing: 1px;
         }
 
         .nav {
             display: flex;
             justify-content: center;
-            background: rgba(15, 15, 15, 0.95);
+            gap: 25px;
+            background: #2F80E4; /* BLEU DE FRANCE */
+            padding: 10px 0;
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 1000; /* Ensure nav is above the video and overlay */
         }
 
         .nav a {
-            color: #ff7700;
+            color: #EEE2DF; /* PLATINUM */
             text-decoration: none;
-            padding: 14px 20px;
-            display: block;
-            font-weight: bold;
-            transition: color 0.3s, transform 0.2s;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s ease;
         }
 
         .nav a:hover {
-            color: #ff0055;
-            transform: scale(1.1);
-        }
-
-        .main-content {
-            padding: 20px;
-        }
-
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-        }
-
-        .gallery img {
-            max-width: 300px;
-            height: auto;
-            object-fit: contain;
-            border: 3px solid #ff0055;
-            border-radius: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(255, 0, 85, 0.8);
-            border-color: #ffcc00;
-        }
-
-        .timelapse {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-        }
-
-        .timelapse video {
-            max-width: 300px;
-            border: 3px solid #ff7700;
-            border-radius: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .timelapse video:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(255, 119, 0, 0.8);
-        }
-
-        .footer {
-            background: linear-gradient(135deg, #ff0055, #ff7700);
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            color: #DEC1DB; /* THISTLE */
         }
 
         section {
-            padding: 20px;
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #6DA0E1; /* LITTLE BOY BLUE */
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1; /* Ensure sections are above the video and overlay */
+        }
+
+        h2 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.8rem;
+            color: #5B61B2; /* LIBERTY */
             margin-bottom: 20px;
-            background: rgba(45, 45, 45, 0.9);
+            text-align: center;
+        }
+
+        .gallery, .timelapse {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img, .timelapse video {
+            width: 100%;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery img:hover, .timelapse video:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(47, 128, 228, 0.7); /* BLEU DE FRANCE */
+        }
+
+        .about p, .contact p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #2d2d2d;
+        }
+
+        .footer {
+            background: #5B61B2; /* LIBERTY */
+            color: #EEE2DF; /* PLATINUM */
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1; /* Ensure footer is above the video and overlay */
+        }
+
+        .fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .fullscreen img {
+            max-width: 90%;
+            max-height: 90%;
             border-radius: 10px;
-            color: #f8f8f2;
+        }
+
+        a {
+            color: #DEC1DB; /* THISTLE */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
-    <!-- Background Video -->
     <div class="video-container">
         <video autoplay loop muted>
             <source src="bggg.mp4" type="video/mp4">
         </video>
     </div>
-
-    <!-- Dark Overlay -->
     <div class="overlay"></div>
 
-    <div class="header" id="header">
-        <img src="CSM meme.jpg" alt="DENZ Logo">
-        <h1>Welcome to DENZ's Art Gallery</h1>
-        <img src="download (1).jpg" alt="DENZ Logo">
-    </div>
+    <header class="header" id="header">
+        <img src="CSM meme.jpg" alt="DENZ Left Logo">
+        <h1>DENZ's Art Gallery</h1>
+        <img src="download (1).jpg" alt="DENZ Right Logo">
+    </header>
 
-    <div class="nav">
+    <nav class="nav">
         <a href="#header">Home</a>
         <a href="#gallery">Gallery</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <a href="#timelapse">Timelapse</a>
-    </div>
+    </nav>
 
-    <div class="main-content">
+    <main class="main-content">
         <section id="gallery">
             <h2>Featured Artworks</h2>
             <div class="gallery">
-                <img src="84.1.jpg" alt="Art 1"> 
-                <img src="anime bg.jpg" alt="Art 3">
-                <img src="radhe radhe.jpg" alt="Art 2">
-                <img src="my oc.jpg" alt="Art 4">
-                <img src="chainsaw man pannel.jpg" alt="Art 5">
-                <img src="first illustration.jpg" alt="Art 1">
+                <img src="84.1.jpg" alt="Art 1" onclick="openFullscreen(this)">
+                <img src="anime bg.jpg" alt="Art 2" onclick="openFullscreen(this)">
+                <img src="radhe radhe.jpg" alt="Art 3" onclick="openFullscreen(this)">
+                <img src="my oc.jpg" alt="Art 4" onclick="openFullscreen(this)">
+                <img src="chainsaw man pannel.jpg" alt="Art 5" onclick="openFullscreen(this)">
+                <img src="first illustration.jpg" alt="Art 6" onclick="openFullscreen(this)">
             </div>
         </section>
-        
+
         <section id="timelapse">
             <h2>Timelapse Videos</h2>
             <div class="timelapse">
@@ -207,20 +237,38 @@
             </div>
         </section>
 
-        <section id="about">
-            <h2>About</h2>
-            <p>Welcome to my art gallery! Here you'll find a diverse collection of artworks and timelapse videos showcasing my creative process. Enjoy exploring my gallery and watching the magic unfold!</p>
+        <section id="about" class="about">
+            <h2>About the Artist</h2>
+            <p>Welcome to DENZ's Art Gallery, where every piece tells a story. Explore a curated collection of digital and traditional artworks crafted with passion and precision. Each timelapse video unveils the creative journey behind the masterpieces. Thank you for being part of this artistic experience.</p>
         </section>
 
-        <section id="contact">
+        <section id="contact" class="contact">
             <h2>Contact</h2>
-            <p>Have questions or want to reach out? Contact me at <a href="mailto:dk2455853@gmail.com">dk2455853@gmail.com</a>.</p>
-            <p>Follow me on Instagram: <a href="https://www.instagram.com/_den_.z/" target="_blank">@_den_.z</a></p>
+            <p>Email: <a href="mailto:dk2455853@gmail.com">dk2455853@gmail.com</a></p>
+            <p>Instagram: <a href="https://www.instagram.com/_den_.z/" target="_blank">@_den_.z</a></p>
         </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 DENZ's Art Gallery. All rights reserved.</p>
+    </footer>
+
+    <div class="fullscreen" id="fullscreen" onclick="closeFullscreen()">
+        <img id="fullscreen-img" src="" alt="Fullscreen Artwork">
     </div>
 
-    <div class="footer">
-        <p>&copy; 2025 Art Gallery. All rights reserved.</p>
-    </div>
+    <script>
+        function openFullscreen(element) {
+            const fullscreenDiv = document.getElementById('fullscreen');
+            const fullscreenImg = document.getElementById('fullscreen-img');
+            fullscreenImg.src = element.src;
+            fullscreenDiv.style.display = 'flex';
+        }
+
+        function closeFullscreen() {
+            document.getElementById('fullscreen').style.display = 'none';
+        }
+    </script>
 </body>
+
 </html>
