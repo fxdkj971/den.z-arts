@@ -141,13 +141,13 @@
             text-align: center;
         }
 
-        .gallery, .timelapse {
+        .gallery, .timelapse, .traditional-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusted for smaller screens */
             gap: 15px;
         }
 
-        .gallery img, .timelapse video {
+        .gallery img, .timelapse video, .traditional-gallery img {
             width: 100%;
             border-radius: 15px;
             object-fit: cover;
@@ -156,7 +156,7 @@
             cursor: pointer;
         }
 
-        .gallery img:hover, .timelapse video:hover {
+        .gallery img:hover, .timelapse video:hover, .traditional-gallery img:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 20px rgba(47, 128, 228, 0.7); /* BLEU DE FRANCE */
         }
@@ -253,7 +253,7 @@
                 font-size: 1.8rem; /* Larger font size for tablets and desktops */
             }
 
-            .gallery, .timelapse {
+            .gallery, .timelapse, .traditional-gallery {
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusted for larger screens */
             }
 
@@ -303,6 +303,7 @@
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <a href="#timelapse">Timelapse</a>
+        <a href="#traditional-art">Traditional Art</a>
     </nav>
 
     <main class="main-content">
@@ -315,6 +316,7 @@
                 <img src="my oc.jpg" alt="Art 4" onclick="openFullscreen(this)">
                 <img src="chainsaw man pannel.jpg" alt="Art 5" onclick="openFullscreen(this)">
                 <img src="first illustration.jpg" alt="Art 6" onclick="openFullscreen(this)">
+                <img src="digi.1.jpg" alt="Art 7" onclick="openFullscreen(this)">
             </div>
         </section>
 
@@ -336,6 +338,33 @@
                 <video controls>
                     <source src="Illustration36.mp4" type="video/mp4">
                 </video>
+                <video controls>
+                    <source src="tl.1.mp4" type="video/mp4">
+                </video>
+                <video controls>
+                    <source src="tl.3.mp4" type="video/mp4">
+                </video>
+                <video controls>
+                    <source src="tl.2.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <section id="traditional-art">
+            <h2>Traditional Artworks</h2>
+            <div class="traditional-gallery">
+                <img src="tr.01.jpg" alt="Traditional Art 1" onclick="openFullscreen(this)">
+                <img src="tr.02.webp" alt="Traditional Art 2" onclick="openFullscreen(this)">
+                <img src="tr.03.jpg" alt="Traditional Art 3" onclick="openFullscreen(this)">
+                <img src="tr.04.jpg" alt="Traditional Art 4" onclick="openFullscreen(this)">
+                <img src="tr.05.jpg" alt="Traditional Art 5" onclick="openFullscreen(this)">
+                <img src="tr.06.jpg" alt="Traditional Art 6" onclick="openFullscreen(this)">
+                <img src="tr.07.jpg" alt="Traditional Art 7" onclick="openFullscreen(this)">
+                <img src="tr.08.jpg" alt="Traditional Art 8" onclick="openFullscreen(this)">
+                <img src="tr.09.jpg" alt="Traditional Art 9" onclick="openFullscreen(this)">
+                <img src="tr.010.jpg" alt="Traditional Art 10" onclick="openFullscreen(this)">
+                <img src="tr.011.jpg" alt="Traditional Art 11" onclick="openFullscreen(this)">
+                <img src="tr.012.jpg" alt="Traditional Art 12" onclick="openFullscreen(this)">
             </div>
         </section>
 
