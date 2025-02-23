@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DENZ's Art Gallery</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            background-color: #0d0d0d;
+            color: #f8f8f2;
+        }
+
+        /* Background Video Container */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -2;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6; /* Increased visibility */
+            filter: blur(2px); /* Soft blur effect */
+        }
+
+        /* Dark Overlay for Better Readability */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+            z-index: -1;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff0055, #ff7700);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            border-bottom: 3px solid #ff7700;
+        }
+
+        .header img {
+            height: 100px;
+            border-radius: 10px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            background: rgba(15, 15, 15, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav a {
+            color: #ff7700;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+            font-weight: bold;
+            transition: color 0.3s, transform 0.2s;
+        }
+
+        .nav a:hover {
+            color: #ff0055;
+            transform: scale(1.1);
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .gallery img {
+            max-width: 300px;
+            height: auto;
+            object-fit: contain;
+            border: 3px solid #ff0055;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 0, 85, 0.8);
+            border-color: #ffcc00;
+        }
+
+        .timelapse {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .timelapse video {
+            max-width: 300px;
+            border: 3px solid #ff7700;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .timelapse video:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 119, 0, 0.8);
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #ff0055, #ff7700);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        section {
+            padding: 20px;
+            margin-bottom: 20px;
+            background: rgba(45, 45, 45, 0.9);
+            border-radius: 10px;
+            color: #f8f8f2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Video -->
+    <div class="video-container">
+        <video autoplay loop muted>
+            <source src="bggg.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Dark Overlay -->
+    <div class="overlay"></div>
+
+    <div class="header" id="header">
+        <img src="CSM meme.jpg" alt="DENZ Logo">
+        <h1>Welcome to DENZ's Art Gallery</h1>
+        <img src="download (1).jpg" alt="DENZ Logo">
+    </div>
+
+    <div class="nav">
+        <a href="#header">Home</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#timelapse">Timelapse</a>
+    </div>
+
+    <div class="main-content">
+        <section id="gallery">
+            <h2>Featured Artworks</h2>
+            <div class="gallery">
+                <img src="84.1.jpg" alt="Art 1"> 
+                <img src="anime bg.jpg" alt="Art 3">
+                <img src="radhe radhe.jpg" alt="Art 2">
+                <img src="my oc.jpg" alt="Art 4">
+                <img src="chainsaw man pannel.jpg" alt="Art 5">
+                <img src="first illustration.jpg" alt="Art 1">
+            </div>
+        </section>
+        
+        <section id="timelapse">
+            <h2>Timelapse Videos</h2>
+            <div class="timelapse">
+                <video controls>
+                    <source src="Illustration.mp4" type="video/mp4">
+                </video>
+                <video controls>
+                    <source src="Comp 1.mp4" type="video/mp4">
+                </video>
+                <video controls>
+                    <source src="chainsaw man pannel.mp4" type="video/mp4">
+                </video>
+                <video controls>
+                    <source src="Illustration21.mp4" type="video/mp4">
+                </video>
+                <video controls>
+                    <source src="Illustration36.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About</h2>
+            <p>Welcome to my art gallery! Here you'll find a diverse collection of artworks and timelapse videos showcasing my creative process. Enjoy exploring my gallery and watching the magic unfold!</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Have questions or want to reach out? Contact me at <a href="mailto:dk2455853@gmail.com">dk2455853@gmail.com</a>.</p>
+            <p>Follow me on Instagram: <a href="https://www.instagram.com/_den_.z/" target="_blank">@_den_.z</a></p>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 Art Gallery. All rights reserved.</p>
+    </div>
+</body>
+</html>
